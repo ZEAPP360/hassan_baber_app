@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:barberapp/screens/BHAddAppointmnetScreen.dart';
 import 'package:barberapp/screens/BHCustomerDashedBoardScreen.dart';
 import 'package:barberapp/screens/BHVerificationScreen.dart';
+import 'package:barberapp/screens/BhCreatePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -84,8 +85,7 @@ Future<void> customerregisters() async {
           "password": passwordCont.text,
           "confirm_password": ConfirmPas.text,
           "email": emailCont.text,
-          'server_key':
-              '0173e2128db8a97b9e375dfb3c731de728fd5611-ec0acfc09ee7c3e289c855741382d18f-85844002',
+          'server_key':server_key
           // 'type': 'get_news_feed'
         }));
 
@@ -113,8 +113,8 @@ Future<void> customerregisters() async {
 
 Future<void> bussinessregisters() async {
 
-  print(emailCont.text);
-  print(passwordCont.text);
+  print(bussinessfullNameCont.text);
+  print(bussinespasswordCont.text);
    var response = await http.post(
         Uri.parse(
             'https://hostrelic.com/sys/wowonder/api/create-account'),
@@ -124,7 +124,7 @@ Future<void> bussinessregisters() async {
           "confirm_password": bussinespasswordCont.text,
           "email": bussinessemailCont.text,
           'server_key':
-              '0173e2128db8a97b9e375dfb3c731de728fd5611-ec0acfc09ee7c3e289c855741382d18f-85844002',
+             server_key,
           // 'type': 'get_news_feed'
         }));
 
@@ -138,7 +138,7 @@ Future<void> bussinessregisters() async {
         print("ök");
          finish(context);
         //  BHDashedBoardScreen.launch(context);>
-        Navigator.push(context,MaterialPageRoute(builder: (context)=>BhAddAppointmentScreen()));
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>BHCreatePages()));
          
         // show alert
          }
